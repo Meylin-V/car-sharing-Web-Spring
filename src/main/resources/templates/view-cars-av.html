@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Available cars</title>
+</head>
+<body>
+<h1>Available cars</h1>
+<form action="client-func" method="get">
+  <input type="submit" value="Order By ID">
+</form>
+<br/>
+<form action="order_price_av" method="get">
+  <input type="submit" value="Order By Price">
+</form>
+<br/>
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Owner</th>
+    <th>Rent</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="car : ${cars}">
+    <td th:text="${car.id}"></td>
+    <td th:text="${car.model}"></td>
+    <td th:text="${car.price}"></td>
+    <td th:text="${car.owner.print()}"></td>
+    <td><a th:href="@{/edit/{id}(id=${car.id})}">Rent</a></td>
+  </tr>
+  </tbody>
+</table>
+<a href="cars-all">Show All Cars</a>
+</body>
+</html>

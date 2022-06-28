@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent car</title>
+</head>
+<body>
+<form action="#" th:action="@{/update_car/{id}(id=${owner.id})}" method="post">
+  <label for="model">Model: </label>
+  <input type="text" id="model" name="model">
+  <label for="price">Price: </label>
+  <input type="text" id="price" name="price">
+  <input type="submit" value="Add car">
+</form>
+</body>
+</html>
