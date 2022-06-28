@@ -62,7 +62,9 @@ public class CarController {
       car.setClients(client1);
       car.setAvailable(false);
       carRepository.save(car);
-    } catch (Exception ignored) {}
+    } catch (Exception e) {
+      throw new RuntimeException();
+    }
     return "redirect:/client-func";
   }
 

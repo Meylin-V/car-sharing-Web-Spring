@@ -50,7 +50,8 @@ public class OwnerController {
           .orElseThrow(() -> new IllegalArgumentException("invalid car id"));
       Car car = new Car(0, model, price, owner, null, true);
       carRepository.save(car);
-    } catch (Exception ignored) {
+    } catch (Exception e) {
+      throw new RuntimeException();
     }
     return "redirect:/owner-func";
   }
@@ -66,7 +67,8 @@ public class OwnerController {
     try {
       Owner owner = new Owner(0, firstName, lastName, phone);
       ownerRepository.save(owner);
-    } catch (Exception ignored) {
+    } catch (Exception e) {
+      throw new RuntimeException();
     }
     return "redirect:/owner-func";
   }
